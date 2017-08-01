@@ -1,6 +1,10 @@
 package mooc.vandy.java4android.birthdayprob.logic;
 
+import java.util.HashSet;
 import java.util.Random;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Set;
 
 import mooc.vandy.java4android.birthdayprob.ui.OutputInterface;
 
@@ -75,8 +79,42 @@ public class Logic
      * We provide you this method that way we can test it with unit testing.
      */
     public double calculate(int size, int count) {
-        // TODO -- add your code here
 
+        int trueCounter = 0;
+
+
+        int counter = 0;
+        while(counter < count) {
+           if(simulate(size) == true) {
+               trueCounter++;
+           }
+           counter++;
+        }
+
+        if(trueCounter == 0) {
+            return 0d;
+        } else {
+            return (double) count / (double) trueCounter;
+        }
     }
-    // TODO - add your code here
+
+    private boolean simulate(int size) {
+
+        List<Integer> birthdays = new ArrayList<Integer>();
+        Random random = new Random(size);
+        int count = 0;
+        while(count < size) {
+            birthdays.add(random.nextInt(365));
+            count++;
+        }
+
+        Set<Integer> set = new HashSet<Integer>(birthdays);
+
+        if(set.size() < birthdays.size()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
