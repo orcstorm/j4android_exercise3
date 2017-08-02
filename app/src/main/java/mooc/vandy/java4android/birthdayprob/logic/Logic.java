@@ -82,9 +82,8 @@ public class Logic
     public double calculate(int size, int count) {
 
         int trueCounter = 0;
-
-
         int counter = 0;
+
         while(counter < count) {
            if(simulate(size, counter + 1) == true) {
                trueCounter++;
@@ -100,24 +99,24 @@ public class Logic
         }
     }
 
-    private boolean simulate(int size, int countNum) {
+    private boolean simulate(int size, int currentCount) {
 
-        Random random = new Random(countNum);
-        List<Integer> birthdays = new ArrayList<Integer>();
+        Random random = new Random(currentCount);
+
+        Set<Integer> birthdaySet = new HashSet<Integer>();
 
         int count = 0;
         while(count < size) {
-            birthdays.add(random.nextInt(365));
-            count++;
+            int r = random.nextInt(365);
+            if(birthdaySet.contains(r)){
+                return true;
+            } else {
+                birthdaySet.add(r);
+                count++;
+            }
         }
 
-        Set<Integer> set = new HashSet<Integer>(birthdays);
-
-        if(set.size() < birthdays.size()){
-            return true;
-        } else {
-            return false;
-        }
+        return false;
     }
 
 }
