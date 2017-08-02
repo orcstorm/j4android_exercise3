@@ -2,5 +2,9 @@
     {
         "merged": "/Users/menneric/projects/coursera/j4android_exercise3/app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png",
         "source": "/Users/menneric/projects/coursera/j4android_exercise3/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/menneric/Projects/coursera/j4android_exercise3/app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png",
+        "source": "/Users/menneric/Projects/coursera/j4android_exercise3/app/src/main/res/mipmap-mdpi/ic_launcher.png"
     }
 ]
