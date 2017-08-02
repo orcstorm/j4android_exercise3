@@ -71,6 +71,7 @@ public class Logic
         mOut.println("of times that two people share the same birthday is");
         mOut.println(String.format("%.2f%% of the time.", percent));
 
+
     }
 
     /**
@@ -85,23 +86,25 @@ public class Logic
 
         int counter = 0;
         while(counter < count) {
-           if(simulate(size) == true) {
+           if(simulate(size, counter + 1) == true) {
                trueCounter++;
            }
            counter++;
         }
 
+
         if(trueCounter == 0) {
-            return 0d;
+            return 0.0d;
         } else {
-            return (double) count / (double) trueCounter;
+            return ((double) trueCounter * 100.0d) / (double) count;
         }
     }
 
-    private boolean simulate(int size) {
+    private boolean simulate(int size, int countNum) {
 
+        Random random = new Random(countNum);
         List<Integer> birthdays = new ArrayList<Integer>();
-        Random random = new Random(size);
+
         int count = 0;
         while(count < size) {
             birthdays.add(random.nextInt(365));
