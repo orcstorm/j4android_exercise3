@@ -82,21 +82,13 @@ public class Logic
     public double calculate(int size, int count) {
 
         int trueCounter = 0;
+
         int counter = 0;
-
         while(counter < count) {
-           if(simulate(size, counter + 1) == true) {
-               trueCounter++;
-           }
-           counter++;
+           if(simulate(size, ++counter)) { trueCounter++; }
         }
 
-
-        if(trueCounter == 0) {
-            return 0.0d;
-        } else {
-            return ((double) trueCounter * 100.0d) / (double) count;
-        }
+        return ((double) trueCounter * 100.0d) / (double) count;
     }
 
     private boolean simulate(int size, int currentCount) {
